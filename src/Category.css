@@ -10,8 +10,10 @@
 .details-page > .body {
     width: 100%;
     background: white;
-    min-height: 100vh;
+    min-height: calc(100vh - 8rem);
     padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .star.light {
@@ -23,6 +25,7 @@
 }
 
 .quiz-bar {
+    margin-top: 1rem;
     display: flex;
 }
 
@@ -32,6 +35,12 @@
 
 .world-map-button {
 
+}
+
+.bound-frame {
+    margin-top: 3rem;
+    width: 100%;
+    flex: 1;
 }
 
 @media (min-width: 1000px) {

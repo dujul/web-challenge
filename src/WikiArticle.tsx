@@ -8,10 +8,9 @@ type WikiProps = {
 export default function WikiArticle(props: WikiProps) {
     const [html, setHtml] = useState("<div>loading</div>")
     useEffect(() => {
-        // axios.get(props.src)
-        //     .then(value => {
-        //     setHtml(value.data)
-        // })
+        axios.get(props.src, {})
+            .then(value => {
+        })
     }, [props.src])
 
     return <div dangerouslySetInnerHTML={{__html: html}}></div>

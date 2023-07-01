@@ -9,7 +9,7 @@ type TropicalRainForestProps = {
 }
 export default function TropicalRainForest(props: TropicalRainForestProps) {
     return <Category name={"Tropical Rainforest"} questionSet={QUIZ} id="tropical_rainforest" onExit={() => props.onExit()}>
-        <WikiArticle src={"http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=Jimi_Hendrix&callback=?"}/>
+        <iframe className={"bound-frame"} src="https://en.wikipedia.org/w/index.php?title=Tropical_rainforest&printable=yes"></iframe>
     </Category>
 }
 

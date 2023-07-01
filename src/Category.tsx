@@ -45,7 +45,7 @@ export default function Category(props: CategoryProps) {
                 {stars >= 0 && <StarBar light={starCountLight} dark={starCountDark}/>}
             </div>
 
-            <div>{props.children}</div>
+            {props.children}
         </>
     }
 
