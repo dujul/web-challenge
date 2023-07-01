@@ -14,6 +14,8 @@ export type TextQuestionData = {
 
 export type ImageQuestion = {
     type: "image"
+    data: ImageQuestionData
+
 }
 
 export type ImageQuestionData = {

@@ -3,7 +3,8 @@ import {useState} from "react";
 import {QuestionRouter} from "./QuestionRouter";
 
 type QuizProps = {
-    questionSet: Question[]
+    questionSet: Question[],
+    onEnded: (score: number, correct: number) => void
 }
 
 type QuizStatus = "PREPARING" | "ANSWERING" | "RESULTS"
@@ -38,7 +39,7 @@ export function Quiz(props: QuizProps) {
 
 
     if(status === "RESULTS") {
-        return <Results correct={correct} score={score} total={props.questionSet.length}/>
+        return <Results correct={correct} score={score} total={props.questionSet.length} onEnded={() => props.onEnded(score, correct)}/>
     }
 
     return <p>UNREACHABLE CODE REACHED</p>
@@ -93,11 +94,13 @@ type ResultsProps = {
     score: number,
     correct: number,
     total: number,
+    onEnded: () => void
 }
 function Results(props: ResultsProps) {
     return <div>
         <div>You scored: {props.score}</div>
         <div>Correct Answers: {props.correct}/{props.total}</div>
         {props.correct < props.total && <p>You are a failure!</p>}
+        <button onClick={() => props.onEnded()}>Restart Quiz</button>
     </div>
 }
