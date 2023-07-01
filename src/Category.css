@@ -1,7 +1,7 @@
 .details-page {
     display: flex;
     justify-content: center;
-    background: grey;
+    background: #eaeaea;
     min-height: 100vh;
 }
 .details-page * h2 {
@@ -11,6 +11,7 @@
     width: 100%;
     background: white;
     min-height: 100vh;
+    padding: 2rem 4rem;
 }
 
 @media (min-width: 800px) {
