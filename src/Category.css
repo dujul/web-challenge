@@ -5,7 +5,7 @@
     min-height: 100vh;
 }
 .details-page * h2 {
-
+    margin-top: 1rem;
 }
 .details-page > .body {
     width: 100%;
@@ -14,12 +14,39 @@
     padding: 2rem 4rem;
 }
 
-@media (min-width: 800px) {
+.star.light {
+    color: gold;
+}
+
+.star.dark {
+    color: grey;
+}
+
+.quiz-bar {
+    display: flex;
+}
+
+.star-bar {
+    margin-left: 1rem;
+}
+
+.world-map-button {
+
+}
+
+@media (min-width: 1000px) {
     .details-page > .body {
         width: 80%;
         min-width: 800px;
         max-width: 1100px;
     }
+
+    .world-map-button {
+        position: fixed;
+        left: 30px;
+        top: 15px;
+    }
+
 }
 
 
