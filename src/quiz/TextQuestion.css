@@ -1,0 +1,11 @@
+
+.text-question.decoy.selected.reveal {
+    background-color: red;
+}
+
+.text-question.correct.selected.reveal {
+    background-color: green;
+}
+.text-question.correct.reveal:not(.selected) {
+    background-color: green;
+}
