@@ -1,4 +1,4 @@
-import {TextQuestionData} from "./QuestionShape";
+import {Question, TextQuestionData} from "./QuestionShape";
 import {useEffect, useState} from "react";
 import "./TextQuestion.css"
 
@@ -7,6 +7,7 @@ type TextProps = {
     onCorrect: () => void,
     onWrong: () => void,
     onContinue: () => void,
+    questionTotal: number
 }
 
 type QuestionStatus = "ANSWERING" | "REVEAL"
@@ -36,11 +37,11 @@ export function TextQuestion(props: TextProps) {
 
     const pickAnswer = (index: number) => {
 
-        if(status !== "ANSWERING") return
+        if (status !== "ANSWERING") return
 
         setSelected(index)
         setStatus("REVEAL")
-        if(index === correctAnswer) {
+        if (index === correctAnswer) {
             props.onCorrect();
         } else {
             props.onWrong();
@@ -48,30 +49,33 @@ export function TextQuestion(props: TextProps) {
     }
 
 
-    return <div>
-        <div>{props.data.question}</div>
-        <ul>
-            {answers.map((value, index) => (
-                <li key={index}
-                    className={`text-question ${correctAnswer === index ? "correct" : "decoy"} ${selected === index ? "selected" : ""} ${status === "REVEAL" ? "reveal" : "open"}`}
-                >
-                    {/* This runs for each answer. the class name could be 'correct selected reveal' when revealing and
+    return <div className={"divider"}>
+        <div className={"quiz-container"}>
+            {/*<div className={"question-number"}>{props.questionTotal} questions left</div>*/}
+            <div className={"question"}>{props.data.question}</div>
+            <ul>
+                <div className={"text-grid"}>
+                    {answers.map((value, index) => (
+                        <li key={index}
+                            className={`text-question ${correctAnswer === index ? "correct" : "decoy"} ${selected === index ? "selected" : ""} ${status === "REVEAL" ? "reveal" : "open"}`}
+                        >
+                            {/* This runs for each answer. the class name could be 'correct selected reveal' when revealing and
                      'correct selected' when not. Do note that people can see the correct answer before revealing through
                      the html inspector with this approach*/}
-                    <button onClick={() => pickAnswer(index)}>{value}</button>
-                </li>
-            ))}
-        </ul>
-
-        {status === "REVEAL" && <button onClick={props.onContinue}>continue to next</button>}
+                            <button className={"text-box"} onClick={() => pickAnswer(index)}>{value}</button>
+                        </li>
+                    ))}
+                </div>
+            </ul>
+        </div>
+        {status === "REVEAL" && <button className={"button-next"} onClick={props.onContinue}>continue to next</button>}
     </div>
 }
 
 
-
 // Adapted from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffle(array: any[]) {
-    let currentIndex = array.length,  randomIndex;
+    let currentIndex = array.length, randomIndex;
 
     // While there remain elements to shuffle.
     while (currentIndex !== 0) {

@@ -17,24 +17,24 @@ const QUIZ: Question[] = [
     {
         type: "text",
         data: {
-            question: "Are you a cat",
-            answer: "No Im a Panda",
+            question: "Which layer is unique to tropical rainforests?",
+            answer: "emergent layer",
             decoys: [
-                "Yes",
-                "No Im a Axolotl",
-                "No Im a Seal",
+                "canopy layer",
+                "understory layer",
+                "forest floor",
             ]
         }
     },
     {
         type: "text",
         data: {
-            question: "Are you a cat2",
-            answer: "No Im a Panda",
+            question: "What is NOT a major climatic parameter to characterize equatorial climate",
+            answer: "carbon dioxide concentration",
             decoys: [
-                "Yes",
-                "No Im a Axolotl",
-                "No Im a Seal",
+                "temperature",
+                "rainfall",
+                "dry season intensity",
             ]
         }
     },

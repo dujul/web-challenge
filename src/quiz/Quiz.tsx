@@ -86,6 +86,7 @@ function Answering(props: AnsweringProps) {
         }}
         onWrong={() => {/*Do nothing*/}}
         onContinue={nextQuestion}
+        questionTotal={props.questions.length}
     />
 }
 

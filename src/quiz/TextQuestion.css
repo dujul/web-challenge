@@ -9,3 +9,66 @@
 .text-question.correct.reveal:not(.selected) {
     background-color: green;
 }
+
+.text-question {
+    display: flex;
+    justify-content: center;
+}
+
+.divider {
+    padding: 50px;
+}
+
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    border: 1px solid rgb(162, 159, 239);
+    border-radius: 10px;
+}
+
+.question {
+    font-size: 22px;
+    padding: 20px 0 20px 10px;
+    border: 1px solid rgb(159, 187, 239);
+    background: #9badf6;
+    border-radius: 10px 10px 0 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.text-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 30px;
+    padding: 50px 0;
+
+}
+
+.text-box {
+    position: relative;
+    width: 80%;
+    text-decoration: none;
+    padding: 5px 20px;
+    text-align: center;
+    clip-path: polygon(10% 0, 90% 0, 97% 50%, 90% 100%, 10% 100%, 3% 50%);
+    border: none;
+    background-color: #c4c7ff;
+}
+
+.button-next {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 30px;
+    border: #c4c7ff;
+    background-color: #9badf6;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+}

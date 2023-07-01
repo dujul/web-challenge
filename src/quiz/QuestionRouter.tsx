@@ -6,13 +6,14 @@ type RouterProps = {
     onCorrect: () => void,
     onWrong: () => void,
     onContinue: () => void,
+    questionTotal: number
 }
 
 export function QuestionRouter(props: RouterProps) {
     const question = props.question;
 
     if(question.type === "text") {
-        return <TextQuestion data={question.data} onCorrect={props.onCorrect} onWrong={props.onWrong} onContinue={props.onContinue}/>
+        return <TextQuestion data={question.data} onCorrect={props.onCorrect} onWrong={props.onWrong} onContinue={props.onContinue} questionTotal={props.questionTotal}/>
     } /* else if(question.type === "image") {
         return <ImageQuestion data={question.data} onCorrect={props.onCorrect} onWrong={props.onWrong}/>
     }
