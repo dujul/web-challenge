@@ -1,6 +1,7 @@
 import {Question} from "./quiz/QuestionShape";
 import {Quiz} from "./quiz/Quiz";
 import {useState} from "react";
+import "./Category.css"
 
 type CategoryProps = {
     name: string,
@@ -26,15 +27,26 @@ export default function Category(props: CategoryProps) {
         }
         setQuizOpen(false);
     }
+
+    let content: JSX.Element;
+
     if (quizOpen) {
-        return <Quiz questionSet={props.questionSet} onEnded={resultHandler}/>;
-    }
-    return (<div>
-            <h2>{props.name}</h2>
+        content = <Quiz questionSet={props.questionSet} onEnded={resultHandler}/>;
+    } else {
+        content = <>
             <button onClick={() => setQuizOpen(true)}>open quiz</button>
             <div>Number of stars: {stars}</div>
             <button onClick={() => props.onExit()}>Back to Map</button>
             <div>{props.children}</div>
+        </>
+    }
+
+    return (
+        <div className={"details-page"}>
+            <div className={"body"}>
+                <h2>{props.name}</h2>
+                {content}
+            </div>
         </div>
     )
 
